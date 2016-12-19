@@ -14,3 +14,6 @@ Font files located in font folder.
 Javascript files located in js folder.
 
 PS5 Javascript files located in libraries folder.
+
+This application was tested using the Chrome browser. The app was hosted locally
+using Apache/2.4.18 on Linux Mint 18 Cinnamon.
