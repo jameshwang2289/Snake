@@ -1,14 +1,16 @@
 function Snake() {
-	this.x = 0;
-	this.y = 0;
-	this.xSpeed = 1;
-	this.ySpeed = 0;
-	this.size = 0;
-	this.tail = [];
+	this.x = 0;																//X-coordinate of Snake
+	this.y = 0;																//Y-coordinate of Snake
+	this.xSpeed = 1;														//Speed of Snake on x-axis
+	this.ySpeed = 0;														//Speed of Snake on y-axis
+	this.size = 0;															//Size of Snake
+	this.tail = [];															//Holds all tail positions of Snake
 
 	this.eat = function(food) {
-		var d = dist(this.x, this.y, food.x, food.y);
-		if (d < 1) {
+	//Returns true if the Snake is on top of the food, false otherwise.
+		var d = dist(this.x, this.y, food.x, food.y);						//Check distance of food to current position of Snake
+
+		if (d < 1) {														
 			this.size++;
 			return true;
 		}
@@ -16,12 +18,13 @@ function Snake() {
 	}
 
 	this.direction = function(x, y) {
+	//Chooses the direction of the Snake
 		this.xSpeed = x;
 		this.ySpeed = y;
 	}
 
 	this.updatePos = function() {
-		if (this.x + this.xSpeed*gridScale > width-gridScale) {
+		if (this.x + this.xSpeed*gridScale > width-gridScale) {				//If the Snake is out of bounds then the game is over
 			endGame = true;
 		}
 		if (this.x + this.xSpeed*gridScale < 0) {
@@ -34,8 +37,8 @@ function Snake() {
 			endGame = true;
 		}
 
-		if (!endGame) {
-			if (this.tail.length === this.size) {
+		if (!endGame) {														//If the game is not over update the positions
+			if (this.tail.length === this.size) {							//Ensures array does not go out of bounds
 				for (var i = 0; i < this.size-1; ++i) {
 					this.tail[i] = this.tail[i+1];
 				}
@@ -56,9 +59,9 @@ function Snake() {
 
 	this.drawSnake = function() {
 		fill(0, 255, 0);
-		for (var i = 0; i < this.size; ++i) {
+		for (var i = 0; i < this.size; ++i) {							  //Draw all tail positions of the Snake
 			rect(this.tail[i].x, this.tail[i].y, gridScale, gridScale); 
 		}
-		rect(this.x, this.y, gridScale, gridScale);	
+		rect(this.x, this.y, gridScale, gridScale);						  //Draw current position of the Snake
 	}
 }

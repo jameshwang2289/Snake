@@ -1,19 +1,21 @@
 function Food() {
-	this.x = 0;
-	this.y = 0;
+	this.x = 0;											//X-coordinate of food
+	this.y = 0;											//Y-coordinate of food
 
 	this.spawnFood = function() {
-		var maxX = floor(width/gridScale);
-		var maxY = floor(height/gridScale);
-		this.x = floor(random(maxX));
-		this.y = floor(random(maxY));
-		this.x *= gridScale;
-		this.y *= gridScale;
+	//Spawns food to random location
+		var maxX = floor(width/gridScale);				//max x-coordinate is width/gridScale
+		var maxY = floor(height/gridScale);				//max y-coordinate is height/gridScale
+		this.x = floor(random(maxX));					//Random x integer bounded by maxX
+		this.y = floor(random(maxY));					//Random y integer bounded by maxY
+		this.x *= gridScale;							//Convert back to gridScale coordinate
+		this.y *= gridScale;							//Convert back to gridScale coordinate
 
 	}
 
 	this.drawFood = function() {
-		fill(255, 0, 100);
+	//Function draws food at its respective x-y coordinate.
+		fill(255, 0, 100);								//Color of food
 		rect(this.x, this.y, gridScale, gridScale);
 	}
 
