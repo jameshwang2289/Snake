@@ -55,6 +55,7 @@ function Snake() {
 			}
 
 		}
+                updatePos = true;
 	}
 
 	this.drawSnake = function() {

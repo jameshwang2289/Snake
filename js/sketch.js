@@ -2,7 +2,7 @@ var snake;											//Snake Object
 var food;											//Food Object
 var gridScale = 20;									//Scale of rectangles in Canvas Grid
 var endGame;										//True if game is over, false otherwise
-
+var updatePos;                                                                          //Position has been updated
 
 function setup() {
     createCanvas(600, 600);							//Canvas is 600x600
@@ -37,22 +37,28 @@ function drawEndText() {
 	textSize(40);
 	text("Game Over", width/3-16, height/4);
 	textSize(20);
-	text("Press r to restart the game", width/4+19, height/4+22);
+	text("Press r to restart the game", width/4+19, height/4+44);
+        text("Score: " + snake.size, width/3+55, height/4+22);
 }
 
 function keyPressed() {
 //Event Listener
-	if (keyCode === UP_ARROW && snake.ySpeed != 1) {
+        
+	if (keyCode === UP_ARROW && snake.ySpeed != 1 && updatePos) {
 		snake.direction(0, -1);
+                updatePos = false;
 	} 
-	else if (keyCode === RIGHT_ARROW && snake.xSpeed != -1) {
+	else if (keyCode === RIGHT_ARROW && snake.xSpeed != -1 && updatePos) {
 		snake.direction(1, 0);
+                updatePos = false;
 	}
-	else if (keyCode === DOWN_ARROW && snake.ySpeed != -1) {
+	else if (keyCode === DOWN_ARROW && snake.ySpeed != -1 && updatePos) {
 		snake.direction(0, 1);
+                updatePos = false;
 	}
-	else if (keyCode === LEFT_ARROW && snake.xSpeed != 1) {
+	else if (keyCode === LEFT_ARROW && snake.xSpeed != 1 && updatePos) {
 		snake.direction(-1, 0);
+                updatePos = false;
 	}
 	
 	if ((key == 'r' || key == 'R') && endGame) {
