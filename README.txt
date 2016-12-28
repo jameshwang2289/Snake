@@ -5,7 +5,7 @@ During Game Screenshot:
 https://cloud.githubusercontent.com/assets/8871534/21298694/f3ed47de-c559-11e6-9eea-c44eccef6fab.png
 
 End Game Screenshot:
-https://cloud.githubusercontent.com/assets/8871534/21298697/f56ea206-c559-11e6-88e9-4ebed112705d.png
+https://cloud.githubusercontent.com/assets/8871534/21511528/9fea9938-cc67-11e6-9d8e-9c8bdd1669bb.png
 
 You will find all files in their respective folders.
 
